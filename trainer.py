@@ -46,7 +46,7 @@ def _train(args):
 
     model = factory.get_model(args['model_name'], args)
     print("_____________________________")
-    print(model._network.info())
+    print(model._network)
     cnn_curve, nme_curve = {'top1': [], 'top5': []}, {'top1': [], 'top5': []}
     for task in range(data_manager.nb_tasks):
         logging.info('All params: {}'.format(count_parameters(model._network)))
