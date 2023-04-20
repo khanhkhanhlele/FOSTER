@@ -73,10 +73,10 @@ class iCIFAR100(iData):
     train_trsf = [
         transforms.RandomCrop(32, padding=4),
         transforms.RandomHorizontalFlip(),
-        transforms.ColorJitter(brightness=63/255),
-        CIFAR10Policy(),
+        #transforms.ColorJitter(brightness=63/255),
+        #CIFAR10Policy(),
         transforms.ToTensor(),
-        Cutout(n_holes=1, length=16),
+        #Cutout(n_holes=1, length=16),
     ]
     test_trsf = [transforms.ToTensor()]
     common_trsf = [

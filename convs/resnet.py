@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 # from torchvision.models.utils import load_state_dict_from_url
 from torch.hub import load_state_dict_from_url
-
+import torch.nn.functional as F
 __all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50', 'resnet101',
            'resnet152', 'resnext50_32x4d', 'resnext101_32x8d',
            'wide_resnet50_2', 'wide_resnet101_2']
@@ -137,7 +137,7 @@ class ResNet(nn.Module):
                              "or a 3-element tuple, got {}".format(replace_stride_with_dilation))
         self.groups = groups
         self.base_width = width_per_group
-        self.conv1 = nn.Conv2d(3, self.inplanes, kernel_size=7, stride=2, padding=3,
+        self.conv1 = nn.Conv2d(3, self.inplanes, kernel_size=3, stride=1, padding=1,
                                bias=False)
         self.bn1 = norm_layer(self.inplanes)
         self.relu = nn.ReLU(inplace=True)
@@ -203,7 +203,8 @@ class ResNet(nn.Module):
         x_3 = self.layer3(x_2)
         x_4 = self.layer4(x_3)
 
-        pooled = self.avgpool(x_4)
+        #pooled = self.avgpool(x_4)
+        pooled = F.avg_pool2d(x_4, x_4.shape[2])
         features = torch.flatten(pooled, 1)
 
         return {
