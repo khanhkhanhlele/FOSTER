@@ -1,8 +1,8 @@
 {
     "prefix": "cil",
     "dataset": "cifar100",
-    "memory_size": 2000,
-    "memory_per_class": 20,
+    "memory_size": 500,
+    "memory_per_class": 50,
     "fixed_memory": false,
     "shuffle": true,
     "init_cls": 10,
