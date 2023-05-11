@@ -69,6 +69,7 @@ def _train(args):
             logging.info('CNN top5 curve: {}'.format(cnn_curve['top5']))
             logging.info('NME top1 curve: {}'.format(nme_curve['top1']))
             logging.info('NME top5 curve: {}\n'.format(nme_curve['top5']))
+            print('CNN top1 curve: {}'.format(cnn_curve['top1']))
         elif nme_accy is None:
             logging.info('No NME accuracy.')
             logging.info('CNN: {}'.format(cnn_accy['grouped']))
@@ -78,6 +79,8 @@ def _train(args):
 
             logging.info('CNN top1 curve: {}'.format(cnn_curve['top1']))
             logging.info('CNN top5 curve: {}\n'.format(cnn_curve['top5']))
+            print('CNN top1 curve: {}'.format(cnn_curve['top1']))
+            
         else:
             logging.info('No CNN accuracy.')
             logging.info('NME: {}'.format(nme_accy['grouped']))
