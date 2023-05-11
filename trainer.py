@@ -57,28 +57,28 @@ def _train(args):
 
         if nme_accy is not None and cnn_accy is not None:
             logging.info('CNN: {}'.format(cnn_accy['grouped']))
-            logging.info('NME: {}'.format(nme_accy['grouped']))
+            #logging.info('NME: {}'.format(nme_accy['grouped']))
 
             cnn_curve['top1'].append(cnn_accy['top1'])
-            cnn_curve['top5'].append(cnn_accy['top5'])
+            #cnn_curve['top5'].append(cnn_accy['top5'])
 
-            nme_curve['top1'].append(nme_accy['top1'])
-            nme_curve['top5'].append(nme_accy['top5'])
+            #nme_curve['top1'].append(nme_accy['top1'])
+            #nme_curve['top5'].append(nme_accy['top5'])
 
             logging.info('CNN top1 curve: {}'.format(cnn_curve['top1']))
-            logging.info('CNN top5 curve: {}'.format(cnn_curve['top5']))
-            logging.info('NME top1 curve: {}'.format(nme_curve['top1']))
-            logging.info('NME top5 curve: {}\n'.format(nme_curve['top5']))
+            #logging.info('CNN top5 curve: {}'.format(cnn_curve['top5']))
+            #logging.info('NME top1 curve: {}'.format(nme_curve['top1']))
+            #logging.info('NME top5 curve: {}\n'.format(nme_curve['top5']))
             print('CNN top1 curve: {}'.format(cnn_curve['top1']))
         elif nme_accy is None:
             logging.info('No NME accuracy.')
             logging.info('CNN: {}'.format(cnn_accy['grouped']))
 
             cnn_curve['top1'].append(cnn_accy['top1'])
-            cnn_curve['top5'].append(cnn_accy['top5'])
+            #cnn_curve['top5'].append(cnn_accy['top5'])
 
             logging.info('CNN top1 curve: {}'.format(cnn_curve['top1']))
-            logging.info('CNN top5 curve: {}\n'.format(cnn_curve['top5']))
+            #logging.info('CNN top5 curve: {}\n'.format(cnn_curve['top5']))
             print('CNN top1 curve: {}'.format(cnn_curve['top1']))
             
         else:
