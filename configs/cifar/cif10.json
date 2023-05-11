@@ -18,7 +18,7 @@
     "is_student_wa":false,
     "lambda_okd":1,
     "wa_value":1,
-    "init_epochs": 2,
+    "init_epochs": 200,
     "init_lr" : 0.1,
     "init_weight_decay" : 5e-4,
     "boosting_epochs" : 170,
