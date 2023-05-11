@@ -51,6 +51,8 @@ def _train(args):
     for task in range(data_manager.nb_tasks):
         logging.info('All params: {}'.format(count_parameters(model._network)))
         logging.info('Trainable params: {}'.format(count_parameters(model._network, True)))
+        print('All params: {}'.format(count_parameters(model._network)))
+        print('Trainable params: {}'.format(count_parameters(model._network, True)))
         model.incremental_train(data_manager)
         cnn_accy, nme_accy = model.eval_task()
         model.after_task()
