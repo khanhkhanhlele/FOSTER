@@ -284,7 +284,7 @@ class FOSTER(BaseLearner):
             inputs = inputs.to(self._device, non_blocking=True)
             with torch.no_grad():
                 outputs = self._snet(inputs)['logits']
-            predicts = torch.topk(outputs, k=self.topk,
+            predicts = torch.topk(outputs, k=1,
                                   dim=1, largest=True, sorted=True)[1]
             y_pred.append(predicts.cpu().numpy())
             y_true.append(targets.cpu().numpy())
