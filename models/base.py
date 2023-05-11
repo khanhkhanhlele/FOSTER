@@ -79,12 +79,12 @@ class BaseLearner(object):
         y_pred, y_true = self._eval_cnn(self.test_loader)
         cnn_accy = self._evaluate(y_pred, y_true)
 
-        if hasattr(self, '_class_means'):
-            y_pred, y_true = self._eval_nme(self.test_loader, self._class_means)
-            nme_accy = self._evaluate(y_pred, y_true)
-        else:
-            nme_accy = None
-
+        # if hasattr(self, '_class_means'):
+        #     y_pred, y_true = self._eval_nme(self.test_loader, self._class_means)
+        #     nme_accy = self._evaluate(y_pred, y_true)
+        # else:
+        #     nme_accy = None
+        nme_accy=0
         return cnn_accy, nme_accy
 
     def incremental_train(self):
@@ -119,7 +119,7 @@ class BaseLearner(object):
             inputs = inputs.to(self._device)
             with torch.no_grad():
                 outputs = self._network(inputs)['eval_logits']
-            predicts = torch.topk(outputs, k=self.topk, dim=1, largest=True, sorted=True)[1]  
+            predicts = torch.topk(outputs, k=1, dim=1, largest=True, sorted=True)[1]  
             y_pred.append(predicts.cpu().numpy())
             y_true.append(targets.cpu().numpy())
 
